@@ -4,7 +4,7 @@
 /**
  * main - n is a random number and the function find if n is positive
  * negative or zero
- * Return: Always (0) 
+ * Return: Always 0 
  */
 
 int main(void)
