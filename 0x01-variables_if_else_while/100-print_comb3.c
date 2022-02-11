@@ -7,10 +7,11 @@
  */
 int main(void)
 {
-	int n1, n2 = 50;
+	int n1, n2;
 
 	for (n1 = 48 ; n1 < 57 ; n1++)
 	{
+		n2 = n1 + 1;
 		while (n2 < 58)
 		{
 			putchar(n1);
@@ -20,8 +21,8 @@ int main(void)
 				putchar(44);
 				putchar(32);
 			}
+			n2++;
 		}
-		n2++;
 	}
 	putchar(10);
 	return (0);
