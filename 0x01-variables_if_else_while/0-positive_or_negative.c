@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 /**
- * main - main block
+ * main - the function find the positive, negativo o zero of n
  * Return: 0
  */
 int main(void)
