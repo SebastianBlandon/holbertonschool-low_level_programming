@@ -16,7 +16,7 @@ int main(void)
 			ft = 1;
 			for (n3 = n1 ; n3 < 58 ; n3++)
 			{
-				if ( ft == 1 )          /* If first time */
+				if (ft == 1)          /* If first time */
 				{
 					n4 = n2 + 1;   /* Take a one value */
 					ft = 0;
