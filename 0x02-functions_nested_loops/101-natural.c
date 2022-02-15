@@ -6,13 +6,12 @@
 int main(void)
 {
 	int i = 0, sum = 0;
-	
-	do
-	{
+
+	do{
 		if (i % 3 == 0 || i % 5 == 0)
 			sum += i;
 		i++;
-	}while (i < 1024);
+	} while (i < 1024);
 	printf("%i\n", sum);
 	return (0);
 }
