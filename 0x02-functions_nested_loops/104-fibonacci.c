@@ -8,11 +8,11 @@ int main(void)
 	int i;
 	unsigned long a = 0, b = 1, sum = 0;
 
-	for (i = 0; i < 85; i++)
+	for (i = 0; i < 97; i++)
 	{
 		sum = a + b;
 		printf("%lu", sum);
-		if (i != 84)
+		if (i != 96)
 			printf(", ");
 		a = b;
 		b = sum;
