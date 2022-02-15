@@ -9,7 +9,7 @@ void print_times_table(int n)
 {
 	int n1, n2;
 
-	if (n <=15 && n > 0)
+	if (n <= 15 && n > 0)
 	{
 		for (n1 = 0; n1 <= n; n1++)
 		{
@@ -32,5 +32,7 @@ void print_times_table(int n)
 		printf("\n");
 	}
 	else
+	{
 		printf("\n");
+	}
 }
