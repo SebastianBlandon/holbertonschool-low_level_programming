@@ -1,4 +1,4 @@
-o#include "main.h"
+#include "main.h"
 /**
  * main - the function print char without stdin
  * Return: 0
