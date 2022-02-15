@@ -5,20 +5,17 @@
  */
 int main(void)
 {
-	int i = 0;
-	unsigned long a = 0, b = 1, sum = 0;
+	unsigned long a = 0, b = 1, sum = 0, fibo = 0;
 
-	while (sum <= 3000000)
+	while (sum <= 4000000)
 	{
-		sum = a + b;
-		printf("%lu", sum);
-		if (i != 31)
-			printf(", ");
+		fibo = a + b;
+		if (fibo % 2 == 0)
+			sum += fibo;
 		a = b;
-		b = sum;
-		i++;
+		b = fibo;
 	}
-	printf("\n");
+	printf("%lu\n", sum);
 	return (0);
 }
 
