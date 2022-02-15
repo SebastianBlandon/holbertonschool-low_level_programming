@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 /**
  * print_times_table - Print times table with the input.
  * @n: int type input
