@@ -1,7 +1,6 @@
 #include "main.h"
 /**
  * times_table - Print 9 timas table.
- * @n: int type intiger
  * Return: void function
  */
 void times_table(void)
