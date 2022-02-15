@@ -10,7 +10,7 @@ int main(void)
 	unsigned long a = 0, b = 1, save1 = 0, save2 = 0, sum = 0;
 	unsigned long tmp1, tmp2, tmp3;
 
-	for (i = 0; i < 97; i++)
+	for (i = 0; i < 98; i++)
 	{
 		if (a + b > LARGEST || save1 > 0 || save2 > 0)
 		{
@@ -30,7 +30,7 @@ int main(void)
 			b = sum;
 			printf("%lu", sum);
 		}
-		if (i != 96)
+		if (i != 97)
 			printf(", ");
 	}
 	printf("\n");
