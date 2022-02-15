@@ -12,7 +12,7 @@ int main(void)
 
 	for (i = 0; i < 97; i++)
 	{
-		if (a + b > LARGEST)
+		if (a + b > LARGEST || save1 > 0 || save2 > 0)
 		{
 			tmp1 = (a + b) / LARGEST;
 			tmp2 = (a + b) % LARGEST;
