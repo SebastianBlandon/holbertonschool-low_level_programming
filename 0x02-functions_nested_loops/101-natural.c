@@ -7,7 +7,7 @@ int main(void)
 {
 	int i = 0, sum = 0;
 
-	do{
+	do {
 		if (i % 3 == 0 || i % 5 == 0)
 			sum += i;
 		i++;
