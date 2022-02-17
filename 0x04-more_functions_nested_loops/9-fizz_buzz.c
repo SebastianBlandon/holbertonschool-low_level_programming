@@ -19,6 +19,6 @@ int main(void)
 		else
 			printf("%i ", i);
 	}
-	printf("Buzz\n");
+	printf("Buzz \n");
 	return (0);
 }
