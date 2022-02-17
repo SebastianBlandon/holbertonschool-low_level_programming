@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _isupper - code check if c is mayus.
- * @c: char type
- * Return: Always 0.
+ * _isdigit - code check if c is digit.
+ * @c: int type
+ * Return: 1 if c digit else 0.
  */
 int _isdigit(int c)
 {
