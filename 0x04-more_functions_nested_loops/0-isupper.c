@@ -2,7 +2,7 @@
 
 /**
  * _isupper - code check if c is mayus.
- * @c: char type
+ * @c: int type
  * Return: Always 0.
  */
 int _isupper(int c)
