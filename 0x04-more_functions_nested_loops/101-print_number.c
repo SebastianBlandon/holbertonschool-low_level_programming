@@ -18,7 +18,7 @@ void print_number(int n)
 	aux2 = n;
 	if (aux1 > 9)
 	{
-		while (num1 >= 10)
+		while (aux1 >= 10)
 		{
 			temp = temp * 10;
 			aux1 /= 10;
