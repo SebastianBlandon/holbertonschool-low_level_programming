@@ -13,7 +13,7 @@ if (i % 2 != 0)
 n = (i - 1) / 2;
 else
 n = i / 2;
-for (; n < i; n++)
+for (; str[i] != '\0'; n++)
 _putchar(str[n]);
 _putchar(10);
 }
