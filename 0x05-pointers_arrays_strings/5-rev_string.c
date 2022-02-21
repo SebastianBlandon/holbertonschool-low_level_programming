@@ -6,11 +6,11 @@
  */
 void rev_string(char *s)
 {
-char tmp[500];
-int i = 0, j;
-for (i = 0; *(s + i) != '\0'; i++)
-tmp[i] = *(s + i);
+	char tmp[500];
+	int i = 0, j;
 
-for (i--, j = 0; i >= 0; i--, j++)
-*(s + j) = tmp[i];
+	for (i = 0; *(s + i) != '\0'; i++)
+		tmp[i] = *(s + i);
+	for (i--, j = 0; i >= 0; i--, j++)
+		*(s + j) = tmp[i];
 }
