@@ -15,7 +15,7 @@ int _atoi(char *s)
 		if (*(s + i) <= 57 && *(s + i) >= 48)
 		{
 			number = number * 10 + (*(s + i) - 48);
-			if (s[i + 1] != ((*(s + i) <= 57 && *(s + i) >= 48)))
+			if (*(s + i + 1) == ' ')
 				break;
 		}
 		else if (*(s + i) == 45)
