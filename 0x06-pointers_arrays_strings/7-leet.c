@@ -7,7 +7,7 @@
 char *leet(char *a)
 {
 	int i = 0, j = 0;
-	char lower[] = "aeotl", upper[] = "AEOTL", digit[5] = {52,51,48,55,49};
+	char lower[] = "aeotl", upper[] = "AEOTL", digit[5] = {52, 51, 48, 55, 49};
 
 	while (*a)
 	{
