@@ -31,9 +31,7 @@ char *cap_string(char *a)
 		if (new_line && *(a + 1) != '\0')
 			*(a + 1) -= 32;
 		if (new_space)
-		{
 			*(a + 1) -= 32;
-		}
 		if (more_char && *(a + 1) >= 97 && *(a + 1) <= 122)
 			*(a + 1) -= 32;
 		a++;
