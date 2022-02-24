@@ -1,4 +1,12 @@
 #include "main.h"
+int size_array(char *src)
+{
+	int size;
+
+	for ( size = 0; *(src + size) != '\0'; size++)
+		;
+	return size;
+}
 /**
  * *_strncpy - copy two array a dest with a source
  * @dest: pointer to char array input
@@ -8,11 +16,22 @@
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int i;
+	int i, j, size_src, size_dest;
 
-	if (n < 0)
-		return (dest);
-	for (i = 0; i < n; i++)
-		*(dest + i) = *(src + i);
+	size_src = size_array(src);
+	size_dest = size_array(dest);
+	if (n > size_src)
+	{	
+		for (i = 0; i < size_src; i++)
+			*(dest + i) = *(src + i);
+		for (j = i; j < n; j++)
+			*(dest + j) = '\0';
+		return (dest);	
+	}
+	else
+	{
+		for (i = 0; i < n; i++)
+			*(dest + i) = *(src + i);
+	}
 	return (dest);
 }
