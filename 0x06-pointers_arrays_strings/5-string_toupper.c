@@ -7,6 +7,7 @@
 char *string_toupper(char *a)
 {
 	int i = 0;
+
 	while (*a)
 	{
 		if (*a >= 97 && *a <= 122)
