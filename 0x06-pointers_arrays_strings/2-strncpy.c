@@ -1,18 +1,5 @@
 #include "main.h"
 /**
- * size_array - calculate size of array with a source
- * @src: pointer to char array input
- * Return: int type
- */
-int size_array(char *src)
-{
-	int size;
-
-	for (size = 0; *(src + size) != '\0'; size++)
-		;
-	return (size);
-}
-/**
  * *_strncpy - copy two array a dest with a source
  * @dest: pointer to char array input
  * @src: pointer to char array input
@@ -23,8 +10,10 @@ char *_strncpy(char *dest, char *src, int n)
 {
 	int i, j, size_src, size_dest;
 
-	size_src = size_array(src);
-	size_dest = size_array(dest);
+	for (size_src = 0; *(src + size_src) != '\0'; size_src++)
+		;
+	for (size_dest = 0; *(dest + size_dest) != '\0'; size_dest++)
+		;
 	if (n > size_src)
 	{
 		for (i = 0; i < size_src; i++)
