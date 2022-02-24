@@ -1,4 +1,9 @@
 #include "main.h"
+/**
+ * size_array - calculate size of array with a source
+ * @src: pointer to char array input
+ * Return: int type
+ */
 int size_array(char *src)
 {
 	int size;
