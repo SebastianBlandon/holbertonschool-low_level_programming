@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * *cap_string - capitalize all the words
  * @a: pointer to char input
