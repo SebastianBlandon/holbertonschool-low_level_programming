@@ -8,10 +8,19 @@
 char *cap_string(char *a)
 {
 	int i = 0, j = 0, new_line = 0, new_space = 0, more_char = 0;
-	char new_l[] = "\n", new_s[] = "\t", more_c[] = ".";
+	char new_l[] = "\n", new_s[] = "\t", more_c[] = ",;.!?(){}";
 
 	while (*a)
 	{
+		while (more_c[j])
+		{
+			if (more_c[j] == *a)
+			{
+				more_char = 1;
+			}
+			j++;
+		}
+		j = 0;
 		while (new_l[j])
 		{
 			if (new_l[j] == *a)
@@ -22,10 +31,6 @@ char *cap_string(char *a)
 			{
 				new_space = 1;
 			}
-			if (more_c[j] == *a)
-			{
-				more_char = 1;
-			}
 			j++;
 		}
 		if (*a == 32 && *(a + 1) >= 97 && *(a + 1) <= 122)
@@ -34,7 +39,7 @@ char *cap_string(char *a)
 			*(a + 1) -= 32;
 		if (new_space)
 		{
-			*a = ' ';
+			/*a = ' ';*/
 			*(a + 1) -= 32;
 		}
 		if (more_char && *(a + 1) >= 97 && *(a + 1) <= 122)
