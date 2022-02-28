@@ -3,7 +3,7 @@
 /**
  * *_strstr - locates a substring.
  * @haystack: pointer to char array input
- * @neddle: pointer to char array input
+ * @needle: pointer to char array input
  * Return: pointer to char array output
  */
 char *_strstr(char *haystack, char *needle)
