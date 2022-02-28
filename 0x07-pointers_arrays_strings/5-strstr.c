@@ -16,7 +16,7 @@ char *_strstr(char *haystack, char *needle)
 			if (*(needle + j) == *(haystack + i + j))
 				flag_needle++;
 		if (*(needle + flag_needle) == '\0')
-			return (haystack + i));
+			return (needle - flag_needle - 1);
 		flag_needle = 0;
 	}
 	return ('\0');
