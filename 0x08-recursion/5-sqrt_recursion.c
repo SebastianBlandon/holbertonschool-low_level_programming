@@ -2,6 +2,7 @@
 /**
  * _square - returns the natural square root of a number.
  * @n: int variable input
+ * @i: int variable input
  * Return: int value output
  */
 int _square(int n, int i)
