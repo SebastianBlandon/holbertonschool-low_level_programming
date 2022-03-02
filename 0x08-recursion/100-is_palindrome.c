@@ -15,6 +15,9 @@ int _strlen_recursion(char *s)
 /**
  * _half_s_even - is positioned in the middle of the array, for len even
  * @s: pointer to char array input
+ * @i: int variable input
+ * @j: int variable input
+ * @len: int variable input
  * Return: int value length string
  */
 int _half_s_even(char *s, int i, int j, int len)
@@ -30,6 +33,9 @@ int _half_s_even(char *s, int i, int j, int len)
 /**
  * _half_s_odd - is positioned in the middle of the array, for len odd
  * @s: pointer to char array input
+ * @i: int variable input
+ * @j: int variable input
+ * @len: int variable input
  * Return: int value length string
  */
 int _half_s_odd(char *s, int i, int j, int len)
