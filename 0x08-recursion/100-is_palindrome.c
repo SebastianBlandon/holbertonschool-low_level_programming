@@ -65,5 +65,4 @@ int is_palindrome(char *s)
 		return (_half_s_even(s, (len_s / 2) - 1, len_s / 2, len_s));
 	else
 		return (_half_s_odd(s, (len_s / 2) - 1, (len_s / 2) + 1, len_s));
-	return (1);
 }
