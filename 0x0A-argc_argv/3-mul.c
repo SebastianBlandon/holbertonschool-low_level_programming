@@ -17,6 +17,9 @@ int main(int argc, char *argv[])
 		printf("%i\n", mul);
 	}
 	else
+	{
 		printf("Error\n");
+		return (1);
+	}
 	return (0);
 }
