@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * main - print the name executable
+ * main - prints its name, followed by a new line.
  * @argc: int variable input, size argv
  * @argv: pointer to char array input, contain arguments
  * Return: 0 always
