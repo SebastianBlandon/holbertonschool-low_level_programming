@@ -54,9 +54,7 @@ int main(int argc, char *argv[])
 	}
 
 	if (atoi(argv[argc - 1]) > 0)
-	{
 		printf("%li\n", count_cents(atoi(argv[argc - 1]), 0));
-	}
 
 	else
 		printf("0\n");
