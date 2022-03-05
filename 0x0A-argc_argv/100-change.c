@@ -49,20 +49,17 @@ int main(int argc, char *argv[])
 {
 	int cents;
 
-	if (argc == 2)
-	{
-		if (atoi(argv[argc - 1]) > 0)
-		{
-			cents = count_cents(atoi(argv[argc - 1]), 0);
-			printf("%i\n", cents);
-		}
-		else
-			printf("0\n");
-	}
-	else
+	if (argc == 1 || argc > 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
+	if (atoi(argv[argc - 1]) > 0)
+	{
+		cents = count_cents(atoi(argv[argc - 1]), 0);
+		printf("%i\n", cents);
+	}
+	else
+		printf("0\n");
 	return (0);
 }
