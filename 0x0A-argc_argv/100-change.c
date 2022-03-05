@@ -10,7 +10,7 @@
 int count_cents(int amount, int cents)
 {
 	if (!amount)
-		return cents;
+		return (cents);
 	if (!(amount % 25))
 	{
 		amount -= 25;
@@ -36,7 +36,7 @@ int count_cents(int amount, int cents)
 		amount -= 1;
 		cents++;
 	}
-	return count_cents(amount, cents);
+	return (count_cents(amount, cents));
 }
 /**
  * main - prints the minimum number of coins to make change
