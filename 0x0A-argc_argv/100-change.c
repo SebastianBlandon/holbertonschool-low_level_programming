@@ -5,9 +5,9 @@
  * count_cents - count the coins
  * @amount: int variable input
  * @cents: int variable input
- * Return: cents int output
+ * Return: cents unsigned int output
  */
-int count_cents(int amount, int cents)
+long count_cents(int amount, int cents)
 {
 	if (!amount)
 		return (cents);
@@ -47,19 +47,19 @@ int count_cents(int amount, int cents)
  */
 int main(int argc, char *argv[])
 {
-	int cents;
-
 	if (argc == 1 || argc > 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
+
 	if (atoi(argv[argc - 1]) > 0)
 	{
-		cents = count_cents(atoi(argv[argc - 1]), 0);
-		printf("%i\n", cents);
+		printf("%li\n", count_cents(atoi(argv[argc - 1]), 0));
 	}
+
 	else
 		printf("0\n");
+
 	return (0);
 }
