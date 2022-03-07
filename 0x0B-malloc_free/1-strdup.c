@@ -23,23 +23,19 @@ unsigned long int _strlen(char *s)
  */
 char *_strdup(char *str)
 {
-	unsigned int i;
+	unsigned int i, size;
 	char *str_cpy;
 
 	if (!str)
 		return (NULL);
 
-	else
-	{
-		str_cpy = malloc(sizeof(str));
-		if (!str_cpy)
-			return (NULL);
+	size = _strlen(str);
+	str_cpy = malloc((size * sizeof(str)) + 1);
+	if (!str_cpy)
+		return (NULL);
 
-		for (i = 0; i <= _strlen(str); i++)
-		{
-			str_cpy[i] = str[i];
-		}
-	}
+	for (i = 0; i <= size; i++)
+		str_cpy[i] = str[i];
 
 	return (str_cpy);
 }
