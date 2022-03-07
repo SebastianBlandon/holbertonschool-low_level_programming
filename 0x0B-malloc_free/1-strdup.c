@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <stdio.h>
+
 /**
  * _strlen - calculate the lengt of string
  * @s: pointer to char input
