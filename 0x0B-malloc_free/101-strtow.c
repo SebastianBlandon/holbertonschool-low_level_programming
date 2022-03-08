@@ -77,7 +77,7 @@ char **strtow(char *str)
 	for (i = 0; i < num_words; i++)
 	{
 		j += findword(&str[j]);
-		list[i] = (char *)malloc((wordlen(str) + 1) * sizeof(char));
+		list[i] = malloc((wordlen(str) + 1) * sizeof(char));
 		if (list[i] == NULL)
 		{
 			for (i = i - 1; i >= 0; i--)
