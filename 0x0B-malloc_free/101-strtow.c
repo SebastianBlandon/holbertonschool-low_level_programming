@@ -84,7 +84,7 @@ char **strtow(char *str)
 				free(str1);
 				return (NULL);
 			}
-			for (j = 0; *str != ' '; j++, i++)
+			for (j = 0; j < size_word; j++, i++)
 			{
 				str1[amount_word][j] = *str;
 				str++;
