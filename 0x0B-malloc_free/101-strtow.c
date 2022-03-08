@@ -99,8 +99,6 @@ char **strtow(char *str)
 			}
 			str1[amount_word][j] = '\0';
 			amount_word++;
-			if (amount_word == amount_word_str)
-				break;
 		}
 		str++;
 	}
