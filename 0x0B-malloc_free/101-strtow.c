@@ -59,44 +59,40 @@ int _stramount_word(char *s)
  */
 char **strtow(char *str)
 {
-	int i, j, size = 0, size_word = 0, amount_word = 0, amount_word_str = 0;
-	char **str1;
+	int i, j, index = 0, size_word = 0, amount_word_str = 0;
+	char **str1 = NULL;
 
 	if (!str || *str == '\0')
 		return (NULL);
 
 	amount_word_str = _stramount_word(str);
-	str1 = malloc(amount_word_str * sizeof(char) + 1);
+	if (!amount_word_str)
+		return (NULL);
+
+	str1 = malloc((amount_word_str + 1) * sizeof(char *));
 	if (!str1)
 		return (NULL);
 
-	size = _strlen(str);
-	for (i = 0; i < size; i++)
+	for (i = 0; i < amount_word_str; i++)
 	{
-		if (*str != ' ')
-		{
-			size_word = _strlen_word(str);
-			str1[amount_word] = malloc(size_word * sizeof(char));
-			if (str1[amount_word] == NULL)
-			{
-				for (i--; i >= 0; i--)
-					free(str1[amount_word]);
-				free(str1);
-				return (NULL);
-			}
-			for (j = 0; j < size_word; j++, i++)
-			{
-				str1[amount_word][j] = *str;
-				str++;
-			}
-			str1[amount_word][j] = '\0';
-			amount_word++;
-		}
-		str++;
-	}
-	if (!amount_word)
-		return (NULL);
+		while (str[index] == ' ')
+			index++;
 
-	str1[amount_word] = NULL;
+		size_word = _strlen_word(str);
+		str1[i] = malloc((size_word + 1) * sizeof(char));
+		if (str1[i] == NULL)
+		{
+			for (; i >= 0; i--)
+				free(str1[i]);
+			free(str1);
+			return (NULL);
+		}
+
+		for (j = 0; j < size_word; j++)
+			str1[i][j] = str[index++];
+		str1[i][j] = '\0';
+	}
+
+	str1[i] = NULL;
 	return (str1);
 }
