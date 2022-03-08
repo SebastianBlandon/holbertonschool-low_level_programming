@@ -70,7 +70,7 @@ char **strtow(char *str)
 
 	if (str == NULL || num_words == 0)
 		return (NULL);
-	list = malloc((num_words + 1) * sizeof(char *));
+	list = malloc((num_words) * sizeof(char *));
 	if (list == NULL)
 		return (NULL);
 
