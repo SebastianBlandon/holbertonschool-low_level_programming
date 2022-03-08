@@ -66,9 +66,13 @@ char **strtow(char *str)
 		return (NULL);
 
 	amount_word_str = _stramount_word(str);
-	str1 = malloc(amount_word_str * sizeof(char) + 1);
+	printf("%d\n", amount_word_str);
+	str1 = malloc((amount_word_str + 1) * sizeof(char *));
 	if (!str1)
+	{
+		free(str1);
 		return (NULL);
+	}
 
 	size = _strlen(str);
 	for (i = 0; i < size; i++)
@@ -76,26 +80,33 @@ char **strtow(char *str)
 		if (*str != ' ')
 		{
 			size_word = _strlen_word(str);
+			printf("%d\n", size_word);
 			str1[amount_word] = malloc(size_word * sizeof(char));
 			if (str1[amount_word] == NULL)
 			{
-				for (i--; i >= 0; i--)
+				for (amount_word--; amount_word >= 0; amount_word--)
 					free(str1[amount_word]);
 				free(str1);
 				return (NULL);
 			}
+
 			for (j = 0; j < size_word; j++, i++)
 			{
-				str1[amount_word][j] = *str;
+				str1[amount_word][j] = (*str);
+				printf("*str : %c\n", *str);
+				printf("str1[%d][%d] : %c\n", amount_word, j, *str);
 				str++;
 			}
 			str1[amount_word][j] = '\0';
 			amount_word++;
+			if (amount_word == amount_word_str)
+				break;
 		}
 		str++;
 	}
 	if (!amount_word)
 		return (NULL);
 
+	printf("str1[0] : %s\n", str1[0]);
 	return (str1);
 }
