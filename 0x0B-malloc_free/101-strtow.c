@@ -66,7 +66,7 @@ char **strtow(char *str)
 		return (NULL);
 
 	amount_word_str = _stramount_word(str);
-	str1 = malloc(amount_word_str * sizeof(char) + 1);
+	str1 = malloc(size * sizeof(*str1));
 	if (!str1)
 		return (NULL);
 
@@ -76,7 +76,7 @@ char **strtow(char *str)
 		if (*str != ' ')
 		{
 			size_word = _strlen_word(str);
-			str1[amount_word] = malloc(size_word * sizeof(char));
+			str1[amount_word] = malloc(size_word * sizeof(**str1));
 			if (str1[amount_word] == NULL)
 			{
 				for (i--; i >= 0; i--)
@@ -84,7 +84,7 @@ char **strtow(char *str)
 				free(str1);
 				return (NULL);
 			}
-			for (j = 0; j < size_word; j++, i++)
+			for (j = 0; *str != ' '; j++, i++)
 			{
 				str1[amount_word][j] = *str;
 				str++;
