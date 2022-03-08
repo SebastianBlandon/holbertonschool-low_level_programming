@@ -40,11 +40,10 @@ char *argstostr(int ac, char **av)
 	for (i = 0; i < ac; i++)
 	{
 		size += _strlen(av[i]);
-		if (i + 1 != ac)
-			size += 1;
+		size += 1;
 	}
 
-	str = malloc((size * sizeof(char)) + 1);
+	str = malloc((size * sizeof(char)));
 	if (!str)
 		return (NULL);
 
