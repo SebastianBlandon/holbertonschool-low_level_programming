@@ -92,7 +92,7 @@ char **strtow(char *str)
 
 			for (j = 0; j < size_word; j++, i++)
 			{
-				str1[amount_word][j] = (*str);
+				str1[amount_word][j] = *str;
 				printf("*str : %c\n", *str);
 				printf("str1[%d][%d] : %c\n", amount_word, j, *str);
 				str++;
