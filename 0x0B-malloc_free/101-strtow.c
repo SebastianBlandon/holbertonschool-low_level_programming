@@ -81,7 +81,7 @@ char **strtow(char *str)
 		{
 			size_word = _strlen_word(str);
 			printf("%d\n", size_word);
-			str1[amount_word] = malloc(size_word * sizeof(char));
+			str1[amount_word] = malloc((size_word + 1) * sizeof(char));
 			if (str1[amount_word] == NULL)
 			{
 				for (amount_word--; amount_word >= 0; amount_word--)
