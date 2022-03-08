@@ -66,6 +66,7 @@ char **strtow(char *str)
 		return (NULL);
 
 	amount_word_str = _stramount_word(str);
+	printf("%d\n", amount_word_str);
 	size = _strlen(str);
 	str1 = malloc(size * sizeof(*str1));
 	if (!str1)
