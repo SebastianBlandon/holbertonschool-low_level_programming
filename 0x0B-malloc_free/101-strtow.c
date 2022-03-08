@@ -30,6 +30,24 @@ int _strlen_word(char *s)
 	return (len);
 }
 /**
+ * _stramount_word - calculate the amount words of string
+ * @s: pointer to char input
+ * Return: amount words.
+ */
+int _stramount_word(char *s)
+{
+	int i = 0, len = 0;
+
+	while (*(s + i) != '\0')
+	{
+		if (*(s + i) != ' ' && *(s + i + 1) == ' ')
+			len++;
+		i++;
+	}
+
+	return (len);
+}
+/**
  * **strtow - splits a string into words.
  *  Each element of this array should contain a single word, null-terminated
  *  The last element of the returned array should be NULL
@@ -41,17 +59,18 @@ int _strlen_word(char *s)
  */
 char **strtow(char *str)
 {
-	int i, j, size = 0, size_word = 0, amount_word = 0;
+	int i, j, size = 0, size_word = 0, amount_word = 0, amount_word_str = 0;
 	char **str1;
 
 	if (!str || *str == '\0')
 		return (NULL);
 
-	size = _strlen(str);
-	str1 = malloc(size * sizeof(*str1));
+	amount_word_str = _stramount_word(str);
+	str1 = malloc(amount_word_str * sizeof(*str1));
 	if (!str1)
 		return (NULL);
 
+	size = _strlen(str);
 	for (i = 0; i < size; i++)
 	{
 		if (*str != ' ')
