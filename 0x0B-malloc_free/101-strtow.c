@@ -1,98 +1,97 @@
+#include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
-
 /**
- * _strlen - calculate the lengt of string
- * @s: pointer to char input
- * Return: len (Size s).
- */
-int _strlen(char *s)
+ * findword - find position of next word
+ * @s: string
+ * Return: position of next word
+ **/
+int findword(char *s)
 {
-	int len = 0;
+	int i;
 
-	while (*(s + len) != '\0')
-		len++;
+	for (i = 0; s[i] == ' '; i++)
+		;
 
-	return (len);
+	return (i);
 }
 /**
- * _strlen_word - calculate the lengt of string
- * @s: pointer to char input
- * Return: len (Size s).
- */
-int _strlen_word(char *s)
+ * wordlen - find length of word
+ * @s: string
+ * Return: length of word
+ **/
+int wordlen(char *s)
 {
-	int len = 0;
 
-	while (*(s + len) != ' ')
-		len++;
+	int i;
 
-	return (len);
+	for (i = 0; s[i] != '\0' && s[i] != ' '; i++)
+		;
+	return (i);
 }
 /**
- * _stramount_word - calculate the amount words of string
- * @s: pointer to char input
- * Return: amount words.
- */
-int _stramount_word(char *s)
+ * word_count - find number of words in string
+ * @s: string
+ * @word: switch used to track if currently in word
+ * Return: number of words in string
+ **/
+int word_count(char *s, int word)
 {
-	int i = 0, len = 0;
 
-	while (*(s + i) != '\0')
+	if (s == NULL || s[0] == '\0')
+		return (0);
+
+	if (s[0] == ' ')
+		return (word_count(++s, 0));
+
+	else if (s[0] != ' ' && s[0] != '\0' && word == 1)
 	{
-		if (*(s + i) != ' ' && *(s + i + 1) == ' ')
-			len++;
-		i++;
+		return (word_count(++s, 1));
+	}
+	else if (s[0] != ' ' && s[0] != '\0' && word == 0)
+	{
+		return (word_count(++s, 1) + 1);
 	}
 
-	return (len);
+	return (0);
 }
 /**
- * **strtow - splits a string into words.
- *  Each element of this array should contain a single word, null-terminated
- *  The last element of the returned array should be NULL
- *  Words are separated by spaces
- * @str: pointer char input
- * Return: NULL if str == NULL or str == ""
- *  returns a pointer to an array of strings (words)
- *  If your function fails, it should return NULL
- */
+ * strtow - create an array of words from string
+ * @str: string
+ * Description: create array of words from string, last element should be null
+ * Return: pointer to strings, NULL if fails
+ **/
 char **strtow(char *str)
 {
-	int i, j, index = 0, size_word = 0, amount_word_str = 0;
-	char **str1 = NULL;
+	char **list;
+	int num_words, i, k, j;
 
-	if (!str || *str == '\0')
+	j = 0;
+	num_words = word_count(str, 0);
+
+	if (str == NULL || num_words == 0)
+		return (NULL);
+	list = malloc((num_words + 1) * sizeof(char *));
+	if (list == NULL)
 		return (NULL);
 
-	amount_word_str = _stramount_word(str);
-	if (!amount_word_str)
-		return (NULL);
-
-	str1 = malloc((amount_word_str + 1) * sizeof(char *));
-	if (!str1)
-		return (NULL);
-
-	for (i = 0; i < amount_word_str; i++)
+	for (i = 0; i < num_words; i++)
 	{
-		while (str[index] == ' ')
-			index++;
-
-		size_word = _strlen_word(str);
-		str1[i] = malloc((size_word + 1) * sizeof(char));
-		if (str1[i] == NULL)
+		j += findword(&str[j]);
+		list[i] = (char *)malloc((wordlen(str) + 1) * sizeof(char));
+		if (list[i] == NULL)
 		{
-			for (; i >= 0; i--)
-				free(str1[i]);
-			free(str1);
+			for (i = i - 1; i >= 0; i--)
+				free(list[i]);
+			free(list);
 			return (NULL);
 		}
-
-		for (j = 0; j < size_word; j++)
-			str1[i][j] = str[index++];
-		str1[i][j] = '\0';
+		for (k = 0; str[j] != ' ' && str[j] != '\0'; k++)
+		{
+			list[i][k] = str[j];
+			j++;
+		}
+		list[i][k] = '\0';
 	}
-
-	str1[i] = NULL;
-	return (str1);
+	list[i] = NULL;
+	return (list);
 }
