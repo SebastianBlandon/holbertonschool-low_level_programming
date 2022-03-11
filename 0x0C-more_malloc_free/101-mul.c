@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * main - multiplies two numbers.
@@ -12,6 +13,13 @@ int main(int argc, char *argv[])
 
 	if (argc == 3)
 	{
+		if (argv[1][0] == '0' || argv[2][0] == '0')
+		{
+			_putchar('0');
+			_putchar(10);
+			return (0);
+		}
+
 		for (i = 1; i < argc; i++)
 			mul *= atoi(argv[i]);
 
