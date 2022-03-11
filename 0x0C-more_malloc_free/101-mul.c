@@ -1,6 +1,16 @@
 #include "main.h"
+#include <ctype.h>
 #include <stdio.h>
 
+/**
+ * print_error - imprime el string Error.
+ * Return: void function
+ */
+void print_error(void)
+{
+	_putchar('E'), _putchar('r'), _putchar('r'), _putchar('o'), _putchar('r');
+	_putchar('\n');
+}
 /**
  * main - multiplies two numbers.
  * @argc: int variable input, size argv
@@ -9,13 +19,38 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, mul = 1, multiple_10 = 1;
+	int i, j, mul = 1, multiple_10 = 1;
 
 	if (argc == 3)
 	{
+		for (i = 1; i < argc; i++)
+		{
+			for (j = 0; argv[i][j]; j++)
+				if (!isdigit(argv[i][j]))
+				{
+					print_error();
+					exit(98);
+				}
+		}
 		if (argv[1][0] == '0' || argv[2][0] == '0')
 		{
 			_putchar('0');
+			_putchar(10);
+			return (0);
+		}
+
+		if (argv[1][0] == '1')
+		{
+			for (i = 0; argv[2][i]; i++)
+				_putchar(argv[2][i]);
+			_putchar(10);
+			return (0);
+		}
+
+		if (argv[2][0] == '1')
+		{
+			for (i = 0; argv[1][i]; i++)
+				_putchar(argv[1][i]);
 			_putchar(10);
 			return (0);
 		}
@@ -38,8 +73,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		_putchar('E'), _putchar('r'), _putchar('r'), _putchar('o'), _putchar('r');
-		_putchar('\n');
+		print_error();
 		exit(98);
 	}
 	return (0);
