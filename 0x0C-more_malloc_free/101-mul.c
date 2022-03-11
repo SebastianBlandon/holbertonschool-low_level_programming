@@ -40,7 +40,7 @@ void check_if_one(char *argv[])
 {
 	int i;
 
-	if (argv[1][0] == '1')
+	if (argv[1][0] == '1' && argv[1][1] == '\0')
 	{
 		for (i = 0; argv[2][i]; i++)
 			_putchar(argv[2][i]);
@@ -48,7 +48,7 @@ void check_if_one(char *argv[])
 		exit(0);
 	}
 
-	if (argv[2][0] == '1')
+	if (argv[2][0] == '1'  && argv[2][1] == '\0')
 	{
 		for (i = 0; argv[1][i]; i++)
 			_putchar(argv[1][i]);
