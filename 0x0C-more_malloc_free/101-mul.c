@@ -1,76 +1,7 @@
 #include "main.h"
 #include <ctype.h>
 #include <stdio.h>
-#include <limits.h>
 
-/**
- * print_error - print string Error.
- * Return: void function
- */
-void print_error(void)
-{
-	_putchar('E'), _putchar('r'), _putchar('r'), _putchar('o'), _putchar('r');
-	_putchar('\n');
-}
-/**
- * check_if_digit - check the array argv are number.
- * @argc: int variable input, size argv
- * @argv: pointer to char input
- * Return: void function
- */
-void check_if_digit(int argc, char *argv[])
-{
-	int i, j;
-
-	for (i = 1; i < argc; i++)
-	{
-		for (j = 0; argv[i][j]; j++)
-			if (!isdigit(argv[i][j]))
-			{
-				print_error();
-				exit(98);
-			}
-	}
-}
-/**
- * check_if_zero - check the argv number.
- * @argv: pointer to char input
- * Return: void function
- */
-void check_if_zero(char *argv[])
-{
-	if (argv[1][0] == '0' || argv[2][0] == '0')
-	{
-		_putchar('0');
-		_putchar(10);
-		exit(0);
-	}
-}
-/**
- * check_if_one - check the argv number.
- * @argv: pointer to char input
- * Return: void function
- */
-void check_if_one(char *argv[])
-{
-	int i;
-
-	if (argv[1][0] == '1' && argv[1][1] == '\0')
-	{
-		for (i = 0; argv[2][i]; i++)
-			_putchar(argv[2][i]);
-		_putchar(10);
-		exit(0);
-	}
-
-	if (argv[2][0] == '1'  && argv[2][1] == '\0')
-	{
-		for (i = 0; argv[1][i]; i++)
-			_putchar(argv[1][i]);
-		_putchar(10);
-		exit(0);
-	}
-}
 /**
  * _strlen - calculate the lengt of string
  * @s: pointer to char input
@@ -114,7 +45,10 @@ void mul_big_numbers(char *argv[], unsigned int size_s1, unsigned int size_s2)
 
 	ptr = malloc(len_out + 1);
 	if (!ptr)
-		print_error(), exit(98);
+	{
+		_putchar('E'), _putchar('r'), _putchar('r'), _putchar('o'), _putchar('r');
+		_putchar('\n'), exit(98);
+	}
 	ptr = _in_array(ptr, len_out);
 	k = len_out - 1, i = size_s1 - 1, j = size_s2 - 1, ca = mull = 0;
 	for (; k >= 0; k--, i--)
@@ -149,12 +83,30 @@ void mul_big_numbers(char *argv[], unsigned int size_s1, unsigned int size_s2)
 }
 /**
  * mul_small_numbers - multiplies two numbers small.
+ * @argc: int variable input, size argv
  * @argv: pointer to char array input, contain arguments
  * Return: 0 always
  */
 void mul_small_numbers(int argc, char *argv[])
 {
 	int i, mul = 1, multiple_10 = 1;
+
+	if (argv[1][0] == '1' && argv[1][1] == '\0')
+	{
+		for (i = 0; argv[2][i]; i++)
+			_putchar(argv[2][i]);
+		_putchar(10);
+		exit(0);
+	}
+
+	if (argv[2][0] == '1'  && argv[2][1] == '\0')
+	{
+		for (i = 0; argv[1][i]; i++)
+			_putchar(argv[1][i]);
+		_putchar(10);
+		exit(0);
+	}
+
 	for (i = 1; i < argc; i++)
 		mul *= atoi(argv[i]);
 
@@ -179,17 +131,31 @@ void mul_small_numbers(int argc, char *argv[])
  */
 int main(int argc, char *argv[])
 {
-	int size_s1 = 0, size_s2 = 0;
+	int i, j, size_s1 = 0, size_s2 = 0;
 
 	if (argc != 3)
 	{
-		print_error();
-		exit(98);
+		_putchar('E'), _putchar('r'), _putchar('r'), _putchar('o'), _putchar('r');
+		_putchar('\n');
+		return (98);
 	}
 
-	check_if_digit(argc, argv);
-	check_if_zero(argv);
-	check_if_one(argv);
+	for (i = 1; i < argc; i++)
+	{
+		for (j = 0; argv[i][j]; j++)
+			if (!isdigit(argv[i][j]))
+			{
+				_putchar('E'), _putchar('r'), _putchar('r'), _putchar('o'), _putchar('r');
+				_putchar('\n');
+				return (98);
+			}
+	}
+	if (argv[1][0] == '0' || argv[2][0] == '0')
+	{
+		_putchar('0');
+		_putchar(10);
+		return (0);
+	}
 
 	size_s1 = _strlen(argv[1]);
 	size_s2 = _strlen(argv[2]);
