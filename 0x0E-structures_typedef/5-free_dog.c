@@ -3,17 +3,15 @@
 
 /**
  * free_dog - frees dogs
- * @name: dog_t type input
+ * @d: pointer dog_t type input
  * Return: Nothing.
  */
 void free_dog(dog_t *d)
 {
-	if (!d)
-		return;
-
-	free(d->name);
-	free(d->owner);
-	free(d);
-
-	return;
+	if (d)
+	{
+		free(d->name);
+		free(d->owner);
+		free(d);
+	}
 }
