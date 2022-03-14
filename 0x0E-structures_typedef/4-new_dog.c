@@ -43,11 +43,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 	char *n, *o;
 
 	if (!name || !age || !owner)
-		return NULL;
+		return (NULL);
 
 	my_dog = malloc(sizeof(struct dog));
 	if (!my_dog)
-		return NULL;
+		return (NULL);
 
 	size_name = _strlen(name);
 	size_owner = _strlen(owner);
@@ -72,5 +72,5 @@ dog_t *new_dog(char *name, float age, char *owner)
 	my_dog->name = n;
 	my_dog->age = age;
 	my_dog->owner = o;
-	return my_dog;
+	return (my_dog);
 }
