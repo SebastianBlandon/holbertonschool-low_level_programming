@@ -1,6 +1,7 @@
 #include "function_pointers.h"
 /**
- * print_name - print name using the pointer to void function
+ * array_iterator - executes a function given as a parameter
+ *  on each element of an array.
  * @array: pointer to int input
  * @size: size_t type variable input
  * @action: pointer to void function input
