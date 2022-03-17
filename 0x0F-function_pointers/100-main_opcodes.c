@@ -10,7 +10,7 @@
  */
 int main(int argc, char *argv[])
 {
-	unsigned int *opc = (unsigned int *) main;
+	char *opc = (char *) main;
 	int i, nbytes;
 
 	if (argc != 2)
