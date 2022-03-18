@@ -1,8 +1,20 @@
 #ifndef _VARIADIC_FUNCTIONS_H_
 #define _VARIADIC_FUNCTIONS_H_
 #include <stdlib.h>
+#include <ctype.h>
 #include <stdio.h>
 #include <stdarg.h>
+/**
+ * struct op - Struct op
+ *
+ * @op: The operator
+ * @f: The function associated
+ */
+typedef struct check
+{
+	char *type;
+	void (*f)();
+} check_t;
 
 int _putchar(char c);
 int sum_them_all(const unsigned int n, ...);
