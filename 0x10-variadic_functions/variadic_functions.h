@@ -5,9 +5,9 @@
 #include <stdio.h>
 #include <stdarg.h>
 /**
- * struct op - Struct op
+ * struct check - Struct check
  *
- * @op: The operator
+ * @type: The type of data
  * @f: The function associated
  */
 typedef struct check
