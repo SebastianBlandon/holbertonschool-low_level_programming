@@ -1,11 +1,4 @@
-#include <stdio.h>
-/**
- * first - prints something before the main() function
- * __attribute__((constructor)) it's important to do something before main
- * Return: Nothing.
- */
-void first(void) __attribute__((constructor));
-
+#include "lists.h"
 /**
  * first - prints something before the main() function
  * Return: Nothing.
