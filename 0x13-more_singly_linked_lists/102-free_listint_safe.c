@@ -11,7 +11,7 @@ size_t free_listint_safe(listint_t **h)
 	size_t nodes = 0;
 
 	if (!current)
-		return (-1);
+		return (0);
 
 	while (current)
 	{
@@ -19,7 +19,7 @@ size_t free_listint_safe(listint_t **h)
 		current = current->next;
 		nodes++;
 
-		if (current > aux)
+		if (current >= aux)
 			break;
 		free(aux);
 	}
