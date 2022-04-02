@@ -11,7 +11,7 @@ size_t print_listint_safe(const listint_t *head)
 	size_t nodes = 0;
 
 	if (!head)
-		exit(98);
+		return (nodes);
 
 	while (current)
 	{
@@ -20,7 +20,7 @@ size_t print_listint_safe(const listint_t *head)
 		nodes++;
 		printf("[%p] %d\n", (void *)aux, aux->n);
 
-		if (current > aux)
+		if (current >= aux)
 		{
 			printf("-> [%p] %d\n", (void *)current, current->n);
 			break;
