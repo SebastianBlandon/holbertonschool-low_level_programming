@@ -2,11 +2,11 @@
 
 /**
  * get_bit - returns the value of a bit at a given index.
- * @n: unsigned long int input
+ * @n: unsigned long int pointer input
  * @index: unsigned int input
- * Return: Nothing
+ * Return: the value of the bit at index index or -1 if an error occured
  */
-int get_bit(unsigned long int n, unsigned int index)
+int set_bit(unsigned long int *n, unsigned int index)
 {
 	if (index > 64)
 		return (-1);
