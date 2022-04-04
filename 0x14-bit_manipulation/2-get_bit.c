@@ -17,8 +17,9 @@ unsigned long int _pow(unsigned long int base, unsigned long int exp)
 	return (base);
 }
 /**
- * print_binary - prints the binary representation of a number.
+ * get_bit - returns the value of a bit at a given index.
  * @n: unsigned long int input
+ * @index: unsigned int input
  * Return: Nothing
  */
 int get_bit(unsigned long int n, unsigned int index)
