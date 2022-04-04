@@ -33,7 +33,7 @@ int get_bit(unsigned long int n, unsigned int index)
 		if (!aux)
 			break;
 	}
-	if (index > i)
+	if (index > i || index > 64)
 		return (-1);
 
 	--i;
