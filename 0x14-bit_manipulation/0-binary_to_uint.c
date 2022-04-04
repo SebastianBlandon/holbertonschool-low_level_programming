@@ -12,8 +12,10 @@ unsigned int _pow(unsigned int base, unsigned int exp)
 {
 	unsigned int i;
 
-	for (i = 0; i < exp; i++)
-		base *= base;
+	if (exp == 0)
+		return (1);
+	for (i = 1; i < exp; i++)
+		base += base;
 	return (base);
 }
 /**
