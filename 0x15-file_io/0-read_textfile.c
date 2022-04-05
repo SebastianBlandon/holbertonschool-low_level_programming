@@ -13,7 +13,7 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
-	ssize_t size;
+	ssize_t size_R, size_W;
 	char buffer[1024];
 
 	if (!filename)
@@ -23,13 +23,16 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd == -1)
 		return (0);
 
-	size = read(fd, buffer, letters);
-	if (size == -1)
+	size_R = read(fd, buffer, letters);
+	if (size_R == -1)
+		return (0);
+
+	size_W = write(STDOUT_FILENO, buffer, size_R);
+	if (size_W == -1)
 		return (0);
 
 	buffer[letters] = '\0';
 
 	close(fd);
-	printf("%s\n", buffer);
-	return (size);
+	return (size_R);
 }
