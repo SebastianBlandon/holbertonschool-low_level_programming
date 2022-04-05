@@ -4,8 +4,8 @@
  * create_file - creates a file.
  * @filename: const char pointer input
  * @text_content: char pointer input
- * Return: 1 on success, -1 on failure
- *  (file can not be created, file can not be written, write “fails”, etc…)
+ * Return: 1 on success, -1 on failure (file can not be created,
+ *  file can not be written, write “fails”, etc…)
  *  if the file can not be opened or read, return 0
  *  if filename is NULL return 0
  *  if write fails or does not write the expected amount of bytes, return 0
