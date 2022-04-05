@@ -8,13 +8,9 @@
  */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int aux;
-
 	if (index > 64)
 		return (-1);
 
-	aux = (1 << index);
-	if (*n & aux)
-		*n ^= aux;
+	*n &= ~(1 << index);
 	return (1);
 }
