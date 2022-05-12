@@ -10,43 +10,43 @@
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *new, *aux = *h, *prev;
-	unsigned int index = 1;
+	unsigned int index = 0;
 
 	new = malloc(sizeof(dlistint_t));
 	if (!new)
 		return (NULL);
 	new->n = n;
-	if (!idx || (!idx && !aux))
+	if (!aux && !idx)
 	{
-		*h = new, new->prev = NULL, new->next = aux;
+		new->prev = NULL, new->next = NULL, *h = new;
 		return (new);
 	}
-	else if (idx == 1)
+	if (!idx)
 	{
-		prev = *h, aux = (*h)->next, new->prev = prev;
-		new->next = aux, prev->next = new;
-		if (aux)
-			aux->prev = new;
-		return (aux);
+		new->prev = NULL, new->next = aux, aux->prev = new, *h = new;
+		return (new);
 	}
-	for (; aux && index != idx; index++, aux = aux->next)
-		prev = aux;
-	if (idx == index && !aux)
+
+
+	while (aux)
 	{
-		if (prev)
+		if (idx == index)
 		{
-			new->prev = prev, new->next = NULL, prev->next = new;
+			new->prev = (aux)->prev;
+			new->next = aux;
+			(aux->prev)->next = new;
+			(aux)->prev = new;
 			return (new);
 		}
-		free(new);
-		return (NULL);
+		index++;
+		prev = aux;
+		aux = (aux)->next;
 	}
-	else if (idx != index && !aux)
+	if (idx == index)
 	{
-		free(new);
-		return (NULL);
+		prev->next = new, new->prev = prev, new->next = NULL;
+		return (new);
 	}
-	prev = aux, aux = aux->next, new->prev = prev, new->next = aux;
-	prev->next = new, aux->prev = new;
-	return (new);
+	free(new);
+	return (NULL);
 }
