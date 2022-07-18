@@ -14,7 +14,7 @@
 #	-You are not allowed to have a list of all the .o files
 CC=gcc
 SRC=main.c school.c
-OBJ=main.o school.o
+OBJ=$(SRC:%.c=%.o)
 NAME=school
 all:
 	$(CC) -c -o main.o main.c
